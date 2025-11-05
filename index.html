@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TODO LIST</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>TO-DO LIST</h1>
+
+    <div class="search-bar">
+      <input type="text" class="search-input" placeholder="Search note..." id="searchInput">
+      <span class="search-icon">🔍</span>
+      <button class="btn btn-primary">ALL</button>
+      <button class="btn btn-settings">⚙</button>
+    </div>
+
+    <ul class="todo-list" id="todoList"></ul>
+
+    <div class="empty-state" id="emptyState" style="display: none;">
+      <div class="empty-icon">📝</div>
+      <p class="empty-text">Empty</p>
+    </div>
+  </div>
+
+  <button class="add-btn" onclick="openModal()">+</button>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2 class="modal-title">NEW NOTE</h2>
+      <input type="text" class="modal-input" placeholder="Input your note..." id="noteInput">
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal()">CANCEL</button>
+        <button class="btn btn-primary" onclick="addNote()">APPLY</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
