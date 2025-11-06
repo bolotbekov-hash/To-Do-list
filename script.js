@@ -1,4 +1,4 @@
-let editingItem = null; 
+let editingItem = null;
 
 function toggleCheck(el) {
   el.classList.toggle('checked');
@@ -15,7 +15,7 @@ function editNote(el) {
   const li = el.closest('.todo-item');
   const textEl = li.querySelector('.todo-text');
 
-  editingItem = li; 
+  editingItem = li;
   const noteInput = document.getElementById('noteInput');
   noteInput.value = textEl.textContent;
 
@@ -30,7 +30,7 @@ function openModal() {
 function closeModal() {
   document.getElementById('modal').classList.remove('active');
   document.getElementById('noteInput').value = '';
-  editingItem = null;  
+  editingItem = null;
 }
 
 function addNote() {
@@ -38,15 +38,14 @@ function addNote() {
   const text = input.value.trim();
   if (!text) return;
 
- 
   if (editingItem) {
     editingItem.querySelector('.todo-text').textContent = text;
     editingItem = null;
     closeModal();
+    checkEmpty();
     return;
   }
 
-  
   const todoList = document.getElementById('todoList');
   const li = document.createElement('li');
   li.className = 'todo-item';
@@ -70,7 +69,10 @@ function checkEmpty() {
   const todoList = document.getElementById('todoList');
   const emptyState = document.getElementById('emptyState');
 
-  if (todoList.children.length === 0) {
+  const visibleItems = Array.from(todoList.children)
+    .filter(item => item.style.display !== 'none');
+
+  if (visibleItems.length === 0) {
     emptyState.style.display = 'block';
     todoList.style.display = 'none';
   } else {
@@ -78,7 +80,6 @@ function checkEmpty() {
     todoList.style.display = 'block';
   }
 }
-
 
 document.getElementById('searchInput').addEventListener('input', function(e) {
   const search = e.target.value.toLowerCase();
@@ -88,8 +89,9 @@ document.getElementById('searchInput').addEventListener('input', function(e) {
     const text = item.querySelector('.todo-text').textContent.toLowerCase();
     item.style.display = text.includes(search) ? 'flex' : 'none';
   });
-});
 
+  checkEmpty();
+});
 
 document.getElementById('noteInput').addEventListener('keypress', function(e) {
   if (e.key === 'Enter') {
@@ -97,9 +99,10 @@ document.getElementById('noteInput').addEventListener('keypress', function(e) {
   }
 });
 
-
 document.getElementById('modal').addEventListener('click', function(e) {
   if (e.target === this) {
     closeModal();
   }
 });
+
+checkEmpty();
