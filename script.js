@@ -1,4 +1,4 @@
-let editingItem = null; // <-- хранит ссылку на редактируемый <li>
+let editingItem = null; 
 
 function toggleCheck(el) {
   el.classList.toggle('checked');
@@ -15,7 +15,7 @@ function editNote(el) {
   const li = el.closest('.todo-item');
   const textEl = li.querySelector('.todo-text');
 
-  editingItem = li; // <-- сохраняем ссылку
+  editingItem = li; 
   const noteInput = document.getElementById('noteInput');
   noteInput.value = textEl.textContent;
 
@@ -30,7 +30,7 @@ function openModal() {
 function closeModal() {
   document.getElementById('modal').classList.remove('active');
   document.getElementById('noteInput').value = '';
-  editingItem = null;  // <-- сброс
+  editingItem = null;  
 }
 
 function addNote() {
@@ -38,7 +38,7 @@ function addNote() {
   const text = input.value.trim();
   if (!text) return;
 
-  // --- редактирование ---
+ 
   if (editingItem) {
     editingItem.querySelector('.todo-text').textContent = text;
     editingItem = null;
@@ -46,7 +46,7 @@ function addNote() {
     return;
   }
 
-  // --- добавление ---
+  
   const todoList = document.getElementById('todoList');
   const li = document.createElement('li');
   li.className = 'todo-item';
@@ -79,7 +79,7 @@ function checkEmpty() {
   }
 }
 
-// Поиск
+
 document.getElementById('searchInput').addEventListener('input', function(e) {
   const search = e.target.value.toLowerCase();
   const items = document.querySelectorAll('.todo-item');
@@ -90,14 +90,14 @@ document.getElementById('searchInput').addEventListener('input', function(e) {
   });
 });
 
-// Enter для добавления
+
 document.getElementById('noteInput').addEventListener('keypress', function(e) {
   if (e.key === 'Enter') {
     addNote();
   }
 });
 
-// Закрытие модалки при клике вокруг
+
 document.getElementById('modal').addEventListener('click', function(e) {
   if (e.target === this) {
     closeModal();
