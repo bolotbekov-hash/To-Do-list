@@ -12,15 +12,6 @@ body {
   padding: 20px;
 }
 
-.app-title {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 14px;
-  color: #888;
-  font-weight: 400;
-}
-
 .container {
   max-width: 600px;
   margin: 60px auto 0;
@@ -51,15 +42,10 @@ h1 {
   color: #fff;
   font-size: 14px;
   outline: none;
-  transition: border-color 0.2s;
 }
 
 .search-input::placeholder {
   color: #666;
-}
-
-.search-input:focus {
-  border-color: #5a5a5a;
 }
 
 .search-icon {
@@ -105,6 +91,7 @@ h1 {
 .btn-settings:hover {
   background: #5558e3;
 }
+
 
 .todo-list {
   list-style: none;
@@ -189,10 +176,11 @@ h1 {
   color: #fff;
 }
 
+
 .add-btn {
   position: fixed;
   bottom: 40px;
-  right: 40px;
+  right: 455px; 
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -213,7 +201,6 @@ h1 {
   transform: scale(1.05);
 }
 
-/* modal */
 
 .modal {
   display: none;
@@ -260,10 +247,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-.modal-input::placeholder {
-  color: #666;
-}
-
 .modal-actions {
   display: flex;
   gap: 12px;
@@ -279,6 +262,7 @@ h1 {
 .btn-secondary:hover {
   background: rgba(99, 102, 241, 0.1);
 }
+
 
 .empty-state {
   text-align: center;
