@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TODO LIST</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="image4.png">
 </head>
 <body>
 
@@ -13,16 +14,16 @@
 
     <div class="search-bar">
       <input type="text" class="search-input" placeholder="Search note..." id="searchInput">
-      <span class="search-icon">🔍</span>
+      <span class="search-icon"><img src="image3.png" alt="image3"/></span>
       <button class="btn btn-primary">ALL</button>
-      <button class="btn btn-settings">⚙</button>
+      <button class="btn btn-settings" id="themeToggle">⚙</button>
     </div>
 
     <ul class="todo-list" id="todoList"></ul>
 
     <div class="empty-state" id="emptyState" style="display: none;">
-      <div class="empty-icon">📝</div>
-      <p class="empty-text">Empty</p>
+      <div class="empty-icon"><img src="image1.png" alt="image1"/></div>
+      <p class="empty-text">Empty...</p>
     </div>
   </div>
 
