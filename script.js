@@ -54,8 +54,8 @@ function addNote() {
     <div class="checkbox" onclick="toggleCheck(this)"></div>
     <span class="todo-text">${text}</span>
     <div class="todo-actions">
-      <button class="icon-btn" onclick="editNote(this)">✏️</button>
-      <button class="icon-btn" onclick="deleteNote(this)">🗑️</button>
+      <button class="icon-btn" onclick="editNote(this)"><img src="image5.png" alt="image5"/></button>
+      <button class="icon-btn" onclick="deleteNote(this)"><img src="image6.png" alt="image6"/></button>
     </div>
   `;
 
@@ -106,3 +106,23 @@ document.getElementById('modal').addEventListener('click', function(e) {
 });
 
 checkEmpty();
+
+
+const themeToggle = document.getElementById('themeToggle');
+
+
+if (localStorage.getItem('theme') === 'light') {
+  document.body.classList.add('light');
+}
+
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+
+ 
+  if (document.body.classList.contains('light')) {
+    localStorage.setItem('theme', 'light');
+  } else {
+    localStorage.setItem('theme', 'dark');
+  }
+});
