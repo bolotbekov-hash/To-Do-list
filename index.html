@@ -14,8 +14,6 @@
 
     <div class="search-bar">
       <input type="text" class="search-input" placeholder="Search note..." id="searchInput">
-      <!-- <input type="text" id="taskInput" placeholder="Введите задачу..." oninput="loadSuggestions()">
-<ul id="suggestions"></ul> -->
       <span class="search-icon"><img src="image3.png" alt="image3"/></span>
       <button class="btn btn-primary">ALL</button>
       <button class="btn btn-settings" id="themeToggle"><img id="themeIcon" src="image8.png" alt="image8"/></button>
@@ -32,9 +30,13 @@
   <button class="add-btn" onclick="openModal()">+</button>
 
   <div class="modal" id="modal">
-    <div class="modal-content">
+    <div class="modal-content"> 
       <h2 class="modal-title">NEW NOTE</h2>
       <input type="text" class="modal-input" placeholder="Input your note..." id="noteInput">
+
+<div id="suggestionsContainer"></div>
+
+
       <div class="modal-actions">
         <button class="btn btn-secondary" onclick="closeModal()">CANCEL</button>
         <button class="btn btn-primary" onclick="addNote()">APPLY</button>
